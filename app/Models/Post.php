@@ -14,6 +14,7 @@ class Post extends Model
 
     public function detail(){
         return $this->hasOne(Detail::class,'post_id','id');
+
     }
    
 }

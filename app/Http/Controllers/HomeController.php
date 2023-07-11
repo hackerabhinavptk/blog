@@ -24,33 +24,46 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+
+
+    public function posts()
     {
-        
+
 
         $id = auth()->user()->id;
 
         $posts_list = [];
-        $detail=  User::find($id)->posts;
+        $detail = User::find($id)->posts;
+        //when i did not used posts it gave me the id of the logged in user so posts are neccessary bcz we have used one to many relation... 
+        // dd($detail);
+        if ($detail) {
 
-        if($detail){
-
-            foreach($detail as $single_post_detail){
+            foreach ($detail as $single_post_detail) {
 
                 $posts_list[$single_post_detail->post_id] = [
 
                     'author_name' => User::find($single_post_detail->author_id)->name,
                     'post_type' => $single_post_detail->post_type,
                     'post_title' => Post::find($single_post_detail->post_id)->title,
-                    'post_description'=>Post::find($single_post_detail->post_id)->description,
-                    'post_image'=>$single_post_detail->image,
-                    'post_id'=>$single_post_detail->id,
+                    'post_description' => Post::find($single_post_detail->post_id)->description,
+                    'post_image' => $single_post_detail->image,
+                    'post_id' => $single_post_detail->id,
                 ];
             }
         }
-// dd($posts_list);
+        //  dd($posts_list);
 
 
-        return view('blog',['posts_list'=>$posts_list]);
+        return view('blog', ['posts_list' => $posts_list]);
     }
+
+    public function index()
+    {
+
+
+       
+        return view('home');
+    }
+
 }

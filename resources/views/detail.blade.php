@@ -1,6 +1,6 @@
 <?php 
   
-// in this we use one to one relation and there is no match of post_id=3
+// in this we use one to one relation and there is no match of post_id=3 because there was post_id=3 into detail table in post_id column and in post there is no
 
 ?>
 
@@ -19,8 +19,9 @@
             
 
             <div class="card" style="width: 18rem;">
-                 <img class="card-img-top" src="{{ url('images/'.$post_detail->detail->image) }}" alt="Card image cap"> 
-                <div class="card-body">
+               
+                 <img class="card-img-top" src="{{ url('images/'.$post_detail->detail->image) }}" alt="Card image cap">
+                 <div class="card-body">
                     <h5 class="card-title">{{$post_detail->title}}</h5>
                     <p class="card-text">{{$post_detail->description}}</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
