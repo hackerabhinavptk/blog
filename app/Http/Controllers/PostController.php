@@ -86,16 +86,16 @@ class PostController extends Controller
     {
 
        
-        $name=User::find(auth()->user()->id);
-        // dd($name);
+       
         $post_detail = Post::find($id);
+      
         $comments = Post::find($id)->comments;
+        // in this $comments we are getting an instance of author method defined in comment model thats we can use author method because ultimately in the post model inside  there is Comment model called threrfore we can call that
 
         $total_comments = count($comments);
        
 
-       
-        return view('detail', ['post_detail' => $post_detail,'comments'=>$comments,'name'=>$name,'total_comments'=>$total_comments]);
+        return view('detail', ['post_detail' => $post_detail,'comments'=>$comments,'total_comments'=>$total_comments]);
 
         // If we have defined a relationship between "Post" and "Detail" models, calling `$post_detail->detail` will retrieve the associated "Detail" model instance.
         // Once you have defined the relationship, you can use it to retrieve associated records. In this case, calling `$post_detail->detail` retrieves the associated "Detail" record based on the relationship defined in the "Post" model.

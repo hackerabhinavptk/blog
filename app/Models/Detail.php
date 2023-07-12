@@ -12,4 +12,6 @@ class Detail extends Model
     protected $table = 'detail';
     protected $fillable = ['status', 'tag', 'type'];
     protected $guarded = ['image'];
+ 
+   
 }
