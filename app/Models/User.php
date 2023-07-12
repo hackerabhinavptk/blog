@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Detail;
-
+use App\Models\Comment;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -36,8 +36,10 @@ class User extends Authenticatable
 
     public function posts(){
 
-    return    $this->hasMany(Detail::class,'author_id','id');
+    return  $this->hasMany(Detail::class,'author_id','id');
     }
+
+    
     /**
      * The attributes that should be cast.
      *

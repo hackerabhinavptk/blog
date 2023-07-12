@@ -35,6 +35,7 @@ class HomeController extends Controller
 
         $posts_list = [];
         $detail = User::find($id)->posts;
+        $detail = \App\Models\Detail::where('author_id','!=',$id);
         //when i did not used posts it gave me the id of the logged in user so posts are neccessary bcz we have used one to many relation... 
         // dd($detail);
         if ($detail) {

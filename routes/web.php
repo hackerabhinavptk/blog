@@ -33,3 +33,9 @@ Route::post('/form', [PostController::class, 'add']);
 Route::get('/post/{id?}', [PostController::class, 'detail']);
 
 
+Route::post('/comment', [PostController::class, 'comment_post']);
+
+Route::get('/logout', [PostController::class, 'Logout']);
+
+
+
