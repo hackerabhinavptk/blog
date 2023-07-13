@@ -34,11 +34,12 @@ class HomeController extends Controller
         $id = auth()->user()->id;
 
         $posts_list = [];
-        //   $detail = User::find($id)->posts; 
+        $detail = User::find($id)->posts; 
 
         //we can use above to show the logged in user posts and this below to get those posts which are not logged in users 
 
-         $detail = \App\Models\Detail::where('author_id', '!=', $id);
+        // $detail = \App\Models\Detail::where('author_id', '!=', $id)->all();
+         
 
         //when i did not used posts it gave me the id of the logged in user so posts are neccessary bcz we have used one to many relation... 
 
@@ -54,10 +55,11 @@ class HomeController extends Controller
                     'post_description' => Post::find($single_post_detail->post_id)->description,
                     'post_image' => $single_post_detail->image,
                     'post_id' => $single_post_detail->id,
+
                 ];
             }
         }
-        //  dd($posts_list);
+        //   dd($posts_list);
 
 
         return view('blog', ['posts_list' => $posts_list]);

@@ -37,5 +37,9 @@ Route::post('/comment', [PostController::class, 'comment_post']);
 
 Route::get('/logout', [PostController::class, 'Logout']);
 
+Route::get('/post/delete/{id?}', [PostController::class, 'delete']);
+
+Route::post('/post/filter', [PostController::class, 'filter']);
+
 
 

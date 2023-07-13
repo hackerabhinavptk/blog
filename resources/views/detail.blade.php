@@ -41,6 +41,17 @@
                                         <ul class="list-inline">
                                             <li><a href="javascript:void(0);">Mar 09 2018</a></li>
                                             <li><a href="javascript:void(0);">Reply</a></li>
+
+                             <?php  if($is_author){ ?>
+
+                                <li><a href="/post/delete/{{$value['id']}}">Delete</a></li>
+                                        
+                         <?php     }else{
+
+                         } ?>
+                        
+                                
+                               
                                         </ul>
                                     </div>
                                 </li>

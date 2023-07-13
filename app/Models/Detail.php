@@ -13,5 +13,8 @@ class Detail extends Model
     protected $fillable = ['status', 'tag', 'type'];
     protected $guarded = ['image'];
  
-   
+    public function post(){
+        return $this->belongsTo(\App\Models\Post::class,'post_id','id');
+    }
+   // belongsto just reverse the relation ship there is also no need to show the  ,'post_id','id' it automatically reverse the relation define3d in post
 }
